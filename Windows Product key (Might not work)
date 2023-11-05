@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+std::string generateRandomString(int length) {
+    const std::string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    std::string randomString;
+
+    for (int i = 0; i < length; i++) {
+        int index = std::rand() % characters.length();
+        randomString += characters[index];
+    }
+
+    return randomString;
+}
+
+int main() {
+    std::srand(static_cast<unsigned>(std::time(nullptr));
+
+    for (int i = 0; i < 5; i++) {
+        std::string group = generateRandomString(32);
+        std::cout << group;
+        if (i < 4) {
+            std::cout << '-';
+        }
+    }
+
+    return 0;
+}
